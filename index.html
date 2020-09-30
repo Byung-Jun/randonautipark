@@ -46,19 +46,17 @@ function onErrorGeolocation() {
 }
 
 function randomLatitude(){
-  var rLati = (Math.random()*(128 - 126)) + 126; //korea
+  var rLati = (Math.random()*(129.5 - 126.5)) + 126.5; //korea
   return rLati;
 }
 function randomLongitude(){
-  var rLong = (Math.random()*(37 - 35)) + 35; //korea
+  var rLong = (Math.random()*(37.6 - 34.3)) + 34.3; //korea
   return rLong;
 }
 
 butt.onclick =function(){
     var lati = randomLatitude(); //g
     var long = randomLongitude(); //w
-    console.log(lati);
-    console.log(long);
     var randonautipark = new naver.maps.LatLng(long, lati);
     map.panTo(randonautipark);
     var marker = new naver.maps.Marker({
