@@ -38,11 +38,6 @@ function onSuccessGeolocation(position) {
 
 function onErrorGeolocation() {
     var center = map.getCenter();
-
-    infowindow.setContent('<div style="padding:20px;">' +
-        '<h5 style="margin-bottom:5px;color:#f00;">Geolocation failed!</h5>'+ "latitude: "+ center.lat() +"<br />longitude: "+ center.lng() +'</div>');
-
-    infowindow.open(map, center);
 }
 
 function randomLatitude(){
@@ -57,8 +52,6 @@ function randomLongitude(){
 butt.onclick =function(){
     var lati = randomLatitude(); //g
     var long = randomLongitude(); //w
-    console.log(lati);
-    console.log(long);
     var randonautipark = new naver.maps.LatLng(long, lati);
     map.panTo(randonautipark);
     var marker = new naver.maps.Marker({
@@ -66,7 +59,7 @@ butt.onclick =function(){
       map: map
     });
     $('#toptitle').text('Latitude: ' + lati);    
-    $('#downtitle').text('Longitude: ' + long);    
+    $('#downtitle').text('Longitude: ' + long);
     // var location = new naver.maps.LatLng(lati,long);
     // // map.setCenter(location); // 얻은 좌표를 지도의 중심으로 설정합니다.
     // // map.setZoom(16); // 지도의 줌 레벨을 변경합니다.
@@ -85,10 +78,6 @@ butt.onclick =function(){
           //chrome.exe --unsafely-treat-insecure-origin-as-secure="http://example.com"
 
         navigator.geolocation.getCurrentPosition(onSuccessGeolocation, onErrorGeolocation);
-    } else {
-        var center = map.getCenter();
-        infowindow.setContent('<div style="padding:20px;"><h5 style="margin-bottom:5px;color:#f00;">Geolocation not supported</h5></div>');
-        infowindow.open(map, center);
     }
 });
 </script>
@@ -98,7 +87,6 @@ butt.onclick =function(){
 <!-- notification for small viewports and landscape oriented smartphones -->
 <div class="device-notification">
   <a class="device-notification--logo" href="#0">
-    <!-- <img src="assets/img/logo_randonautica.png" alt="Global"> -->
     <p>RandonautiPark</p>
   </a>
   <p class="device-notification--message">RandonautiPark</p>
@@ -110,21 +98,14 @@ butt.onclick =function(){
       <div class="l-wrapper">
         <header class="header">
           <a class="header--logo" href="#0">
-            <!-- <img src="assets/img/logo_randonautica.png" alt="Global"> -->
             <p>RandonautiPark</p>
           </a>
           <button class="header--cta cta">Click</button>
-<!--           <div class="header--nav-toggle">
-            <span></span>
-          </div> -->
         </header>
         <nav class="l-side-nav">
           <ul class="side-nav">
             <li class="is-active"><span>RandonautiPark</span></li>
-<!--              <li><span>Works</span></li>
-           <li><span>About</span></li> -->
             <li id = "tab_c"><span>Adventure</span></li>
-<!--             <li><span>Hire us</span></li> -->
           </ul>
         </nav>
         <ul class="l-main-content main-content">
@@ -147,22 +128,16 @@ butt.onclick =function(){
           <li class="l-section section">
             <div class="contact">
               <div class="contact--lockup">
-              <!-- checkout formspree.io for easy form setup -->
                 <div id="map" style="width: 100%; height: 600px; position: relative; overflow: hidden; background: 0px 0px repeat transparent;">
          
-<!--                 <form class="work-request">
-                <input id="mapBtn" type="submit" value="Send Request"></form> -->
                                 </div>     
                                                 <div class="modal">
                   <div class="modal--information">
                     <p id = "toptitle">Adventure Position</p>
                     <p id = "downtitle"></p>
-<!--                     <a href="mailto:ouremail@gmail.com">ouremail@gmail.com</a>
-                    <a href="tel:+148126287560">+48 12 628 75 60</a> -->
                   </div>
                   <ul class="modal--options">
                     <li><a id="mapBtn">Go</a></li>
-                    <!-- <li><a href="mailto:qudwns741@gmail.com">Contact Us</a></li> -->
                   </ul>
                 </div> 
             </div>
@@ -174,8 +149,5 @@ butt.onclick =function(){
     </div>
   </div>
 </div>
-
-
-
 </body>
 </html>
